@@ -53,36 +53,30 @@
 
     <script src="../../srgletterbox-web/src/SRGLetterbox.js"></script>
     <script>
-        const urns = ['urn:srf:video:c4927fcf-e1a0-0001-7edd-1ef01d441651',
-                         'urn:srf:video:c49c1d64-9f60-0001-1c36-43c288c01a10',
-                        'urn:srf:video:c49c1d73-2f70-0001-138a-15e0c4ccd3d0'];
-
-
-
-
-        //Player
-        window.letterbox = new SRGLetterbox();
-        letterbox.initializeOnElement('container-drm');
-        letterbox.prepareToPlayURN(urns[0], undefined, undefined, true);
-
-        let p = 0;
-        document.querySelector('.p1').addEventListener('click', ()=>{
-            const urn = urns[++p%3];
-            letterbox.prepareToPlayURN(urn, undefined, undefined, true);
-            letterbox.muted(true);
-            console.log('URN',urn);
-            letterbox.player.options({drmf: false});
-            if(p%4 === 0){
-                letterbox.player.options({drmf: true});
-            }
-        });
-        let s = 0;
-        document.querySelector('.s1').addEventListener('click', ()=>{
-            const urn = urns[++s%3];
-            console.log('URN',urn);
-            letterbox.switchToUrn(urn);
-            letterbox.muted(true);
-        });
+var e = ["urn:srf:video:c4927fcf-e1a0-0001-7edd-1ef01d441651", "urn:srf:video:c49c1d64-9f60-0001-1c36-43c288c01a10", "urn:srf:video:c49c1d73-2f70-0001-138a-15e0c4ccd3d0"];
+    window.letterbox = new SRGLetterbox,
+    letterbox.initializeOnElement("container-drm"),
+    letterbox.prepareToPlayURN(e[0], void 0, void 0, !0);
+    var o = 0;
+    document.querySelector(".p1").addEventListener("click", function() {
+        var r = e[++o % 3];
+        letterbox.prepareToPlayURN(r, void 0, void 0, !0),
+        letterbox.muted(!0),
+        console.log("URN", r),
+        letterbox.player.options({
+            drmf: !1
+        }),
+        o % 4 == 0 && letterbox.player.options({
+            drmf: !0
+        })
+    });
+    var r = 0;
+    document.querySelector(".s1").addEventListener("click", function() {
+        var o = e[++r % 3];
+        console.log("URN", o),
+        letterbox.switchToUrn(o),
+        letterbox.muted(!0)
+    });
 
 
 
